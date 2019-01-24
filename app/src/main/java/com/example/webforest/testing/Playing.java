@@ -61,19 +61,22 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
             if (clickedButton.getText().equals(Common.list_question.get(index).getCorrectAnswer())) {
                 score += 10;
                 correctAnwer++;
-                showQuestion(++index);
 
-            } else {
-                Intent intent = new Intent(this, Done.class);
-                Bundle dataSend = new Bundle();
-                dataSend.putInt("SCORE", score);
-                dataSend.putInt("TOTAL", totalQuestion);
-                dataSend.putInt("CORRECT", correctAnwer);
-                intent.putExtras(dataSend);
-                startActivity(intent);
-                finish();
 
             }
+            showQuestion(++index);
+
+// else {
+//                Intent intent = new Intent(this, Done.class);
+//                Bundle dataSend = new Bundle();
+//                dataSend.putInt("SCORE", score);
+//                dataSend.putInt("TOTAL", totalQuestion);
+//                dataSend.putInt("CORRECT", correctAnwer);
+//                intent.putExtras(dataSend);
+//                startActivity(intent);
+//                finish();
+//
+//            }
             txtScore.setText(String.format("%d", score));
 
         }
