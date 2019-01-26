@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.webforest.testing.BroadCastReciever.AlarmReceiver;
 import com.example.webforest.testing.Common.Common;
 import com.example.webforest.testing.Model.User;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,12 +26,13 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
-    MaterialEditText editNewUser, editNewPassword, editNewEmail;
-    MaterialEditText editUser, editPassword;
-    Button btnSignUp, btnSignIn;
-    DatabaseReference users;
-    DatabaseReference category;
-    FirebaseDatabase database;
+    private MaterialEditText editNewUser, editNewPassword, editNewEmail;
+    private MaterialEditText editUser, editPassword;
+    private Button btnSignUp, btnSignIn;
+    private DatabaseReference users;
+    private DatabaseReference category;
+    private FirebaseDatabase database;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -41,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.sign_up);
         editUser = findViewById(R.id.Username);
         editPassword = findViewById(R.id.password);
+
+        //implement firebase authentication
+        mAuth = FirebaseAuth.getInstance();
+        //if user already sign in
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(MainActivity.this, Home.class));
+            finish();
+        }
+
+
       users = FirebaseDatabase.getInstance().getReference("Users");
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         am.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
     }
 
+    ////////for registration dialog////////
     private void showDialog() {
         AlertDialog.Builder alertdialog = new AlertDialog.Builder(MainActivity.this);
         alertdialog.setTitle("Sign Up");

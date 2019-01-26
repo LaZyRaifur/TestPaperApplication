@@ -5,5 +5,9 @@
     <color name="colorAccent">#565866</color>
     <color name="progress_bar">#AD1457</color>
     <color name="text">#a468d4ff</color>
+    <color name="colorText">#dddddd</color>
+    <color name="colorwhite">#fff</color>
+    <color name="colorSignUp">#e0381717</color>
 
+    <color name="colorButtonTransparent">#a8050505</color>
 </resources>
