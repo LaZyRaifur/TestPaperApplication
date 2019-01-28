@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.webforest.testing.BroadCastReciever.AlarmReceiver;
 import com.example.webforest.testing.Common.Common;
+import com.example.webforest.testing.Reset.Reset;
 import com.example.webforest.testing.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,21 +30,25 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     private MaterialEditText editNewUser, editNewPassword, editNewEmail;
     private MaterialEditText editUser, editPassword;
-    private Button btnSignUp, btnSignIn;
+    private Button btnSignUp, btnSignIn,btnReset;
     private DatabaseReference users;
-    private DatabaseReference category;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Make to run your application only in portrait mode
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         btnSignIn = findViewById(R.id.sign_in);
         btnSignUp = findViewById(R.id.sign_up);
         editUser = findViewById(R.id.Username);
         editPassword = findViewById(R.id.password);
+        btnReset = (Button)findViewById(R.id.Reset);
 
         //implement firebase authentication
         mAuth = FirebaseAuth.getInstance();
@@ -51,6 +57,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, Home.class));
             finish();
         }
+
+        //if user already registered-27.01.19
+//        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//                if (user != null) {
+//                    Intent intent = new Intent(MainActivity.this, Home.class);
+//                    startActivity(intent);
+//                    finish();
+//                    return;
+//                }
+//            }
+//        };
 
 
       users = FirebaseDatabase.getInstance().getReference("Users");
@@ -89,6 +110,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(MainActivity.this,Reset.class);
+               startActivity(intent);
+            }
+        });
     }
 
     private void registerAlarm() {
@@ -129,9 +158,53 @@ public class MainActivity extends AppCompatActivity {
                         , editNewPassword.getText().toString()
                         , editNewEmail.getText().toString());
 
+
+                //updated 27.01.19
+//                final String name = editNewUser.getText().toString().trim();
+//                final String email = editNewEmail.getText().toString().trim();
+//                final String password = editNewPassword.getText().toString().trim();
+//
+//                mAuth.createUserWithEmailAndPassword(user.getEmail(),user.getPassword()).addOnCompleteListener(MainActivity.this,
+//                        new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//
+//                        if (task.isSuccessful()) {
+//
+//                            User user = new User(
+//                                    name,
+//                                    password,
+//                                    email
+//
+//                            );
+//
+//                            String user_id = mAuth.getCurrentUser().getUid();
+//                            users = FirebaseDatabase.getInstance().getReference("Users");
+//                            users.setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    if (task.isSuccessful()) {
+//                                        Toast.makeText(MainActivity.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
+//                                    } else {
+//                                        //display a failure message
+//                                    }
+//                                }
+//
+//
+//                            });
+//
+//                    }
+//                        else {
+//                            Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                }
+
+
                 users.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        //replace get method 27.01.19
                         if (dataSnapshot.child(user.getUserName()).exists()) {
                             Toast.makeText(MainActivity.this, "User Already Exist", Toast.LENGTH_SHORT).show();
                         } else {
@@ -146,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
-                });
+               });
                 dialog.dismiss();
             }
         });

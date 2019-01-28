@@ -16,6 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/values-w820dp'] } }
 }
 
 dependencies {
@@ -50,4 +51,3 @@ dependencies {
 apply plugin: 'com.google.gms.google-services'
 // Work around
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
-

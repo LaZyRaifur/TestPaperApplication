@@ -1,74 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wall1"
+    android:background="@drawable/done"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
     tools:context=".Done">
 
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/loginBox"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/doneProgressBar"
-        android:layout_centerHorizontal="true"
-        android:padding="20dp">
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_round"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="25dp">
 
         <LinearLayout
-            android:id="@+id/btnGroup"
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/loginBox"
+            android:layout_centerHorizontal="true"
             android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:paddingTop="30dp"
+            tools:ignore="NotSibling">
+
+            <!--<TextView-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:padding="@dimen/activity_horizontal_margin"-->
+            <!--android:text="@string/forgot_password_msg"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="14sp" />-->
+
+            <ProgressBar
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:id="@+id/doneProgressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp" />
+
+            <TextView
+                android:id="@+id/txtTotalScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtTotalQuestion"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Score : 0"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTotalQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="@string/passed_0_30"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
 
             <Button
                 android:id="@+id/btnTryAgain"
-                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:background="#AD1457"
-                android:foreground="?attr/selectableItemBackground"
+                android:background="@drawable/button_try_again"
                 android:text="@string/try_again"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:theme="@style/MyButton" />
 
+
         </LinearLayout>
+
 
     </RelativeLayout>
 
-    <ProgressBar
-        android:id="@+id/doneProgressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="180dp"
-        android:layout_alignParentLeft="true" />
-
-    <TextView
-        android:id="@+id/txtTotalScore"
+    <ImageButton
+        android:id="@+id/user_profile_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/txtTotalQuestion"
         android:layout_centerHorizontal="true"
-        android:text="Score : 0"
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/txtTotalQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="83dp"
-        android:text="@string/passed_0_30"
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
+        android:layout_marginTop="80dp"
+        android:background="@drawable/user_profile_image_background"
+        android:elevation="4dp"
+        android:src="@drawable/checked" />
 
 </RelativeLayout>
+
+
+

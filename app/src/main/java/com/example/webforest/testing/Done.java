@@ -52,7 +52,7 @@ public class Done extends AppCompatActivity {
             int correctAnswer = extra.getInt("CORRECT");
 
             txtResultScore.setText(String.format("SCORE : %d", score));
-            getTxtResultQuestion.setText(String.format("PASSED : %d/%d", correctAnswer, totalQuestion));
+            getTxtResultQuestion.setText(String.format("Your correct answer : %d/%d", correctAnswer, totalQuestion));
 
             progressBar.setMax(totalQuestion);
             progressBar.setProgress(correctAnswer);

@@ -16,11 +16,19 @@
     <string name="which_one_is_better_you_or_me">Which one is better you or me??</string>
     <string name="_0">0</string>
     <string name="_1_30">1/30</string>
-    <string name="passed_0_30">Passed : 0/30</string>
+    <string name="passed_0_30">Your total correct answer is : 0/30</string>
     <string name="try_again">Try Again</string>
     <string name="name">Name</string>
     <string name="category_name">Category Name</string>
     <string name="score">Score</string>
+    <string name="registration_success">Successfully Registration!!!!</string>
+    <string name="sign_up" tools:ignore="ExtraTranslation">Sign Up for Quiz paper? Click Here.......</string>
+    <string name="lbl_forgot_password">Forget Password</string>
 
-    <string name="sign_up" tools:ignore="ExtraTranslation">Sign Up for Quiz paper</string>
+    <string name="forgot_password_msg">Don\'t worry.We are here for help.\njust need your registered Email Id to sent you password reset instructions.</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="btn_reset_password">Reset password</string>
+    <string name="btn_back">back</string>
+    <string name="sign_up_button">Registration</string>
+
 </resources>

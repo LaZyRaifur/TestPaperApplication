@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Reset.Reset"
+    android:background="@drawable/image_3537497_960_720"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+
+    <RelativeLayout
+        android:id="@+id/loginBox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_round"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/loginBox"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            tools:ignore="NotSibling">
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/lbl_forgot_password"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@string/forgot_password_msg"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:layout_gravity="center"
+                android:id="@+id/email"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_round_white"
+                android:gravity="center"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="10sp" />
+
+            <Button
+            android:layout_gravity="center"
+            android:id="@+id/btn_reset_password"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/reset_profile_iimage"
+            android:text="@string/btn_reset_password"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+
+            <Button
+                android:layout_gravity="center"
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:text="@string/btn_back"
+            android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/user_profile_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/user_profile_image_background"
+        android:elevation="4dp"
+        android:src="@drawable/mail" />
+
+</RelativeLayout>
+
+
+

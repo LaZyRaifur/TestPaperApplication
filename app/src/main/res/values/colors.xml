@@ -10,4 +10,5 @@
     <color name="colorSignUp">#e0381717</color>
 
     <color name="colorButtonTransparent">#a8050505</color>
+    <color name="white">#ffff</color>
 </resources>
