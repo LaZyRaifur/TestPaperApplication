@@ -1,5 +1,6 @@
 package com.example.webforest.testing.Reset;
 
+import android.content.pm.ActivityInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,11 +21,12 @@ public class Reset extends AppCompatActivity {
     private EditText inputEmail;
     private Button btnReset, btnBack;
     private FirebaseAuth auth;
-    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Make to run your application only in portrait mode
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_reset);
 
         auth = FirebaseAuth.getInstance();
@@ -38,7 +40,6 @@ public class Reset extends AppCompatActivity {
         btnBack = (Button) findViewById(R.id.btn_back);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,6 @@ public class Reset extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
                 auth.sendPasswordResetEmail(email)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -68,7 +68,6 @@ public class Reset extends AppCompatActivity {
                                 } else {
                                     Toast.makeText(Reset.this, "Failed to sent reset email", Toast.LENGTH_SHORT).show();
                                 }
-                                progressBar.setVisibility(View.GONE);
                             }
                         });
             }

@@ -7,6 +7,11 @@
     <string name="user_name">User Name</string>
     <string name="password">Password</string>
 
+   <!--for password-->
+    <!---->
+   <string name="minimum_password">at least 6 or more password required!!!!!!</string>
+    <string name="auth_failed">Failed :(</string>
+
     <string name="email">Email</string>
     <string name="play">PLAY</string>
     <string name="answer_d">Answer D</string>

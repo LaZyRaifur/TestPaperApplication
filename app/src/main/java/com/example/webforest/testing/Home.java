@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,8 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Make to run your application only in portrait mode
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_home);
         registrationNotification();
 
@@ -70,7 +73,7 @@ public class Home extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
                 if(intent.getAction().equals(Common.STR_PUSH)){
                     String message=intent.getStringExtra("message");
-                    showNotification("Kvíz",message);
+                    showNotification("Raifurrahim",message);
                 }
             }
         };

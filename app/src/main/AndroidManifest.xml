@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUp.SignUp"/>
         <activity android:name=".Fragment.CategoryFragment"
             tools:ignore="InnerclassSeparator" />
         <activity android:name=".Fragment.RankingFragment"

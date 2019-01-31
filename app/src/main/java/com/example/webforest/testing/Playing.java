@@ -1,6 +1,7 @@
 package com.example.webforest.testing;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
     final static long TIMEOUT = 10000;
     int progressValue = 0;
     CountDownTimer mCountDown;
-    int index = 0, score = 0, thisQuestion = 0, totalQuestion, correctAnwer;
+    int index = 0, score = 0, thisQuestion = 0, totalQuestion, correctAnwer=0;
     ProgressBar progressBar;
     ImageView question_image;
     Button btnA, btnB, btnC, btnD;
@@ -32,6 +33,10 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Make to run your application only in portrait mode
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_playing);
         txtScore = findViewById(R.id.txtScore);
         txtQuestionNum = findViewById(R.id.txtTotalQuestion);
@@ -59,7 +64,7 @@ public class Playing extends AppCompatActivity implements View.OnClickListener {
         if (index < totalQuestion) {
             Button clickedButton = (Button) v;
             if (clickedButton.getText().equals(Common.list_question.get(index).getCorrectAnswer())) {
-                score += 10;
+                score += 1;
                 correctAnwer++;
 
 

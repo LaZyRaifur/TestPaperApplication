@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Reset.Reset"
-    android:background="@drawable/image_3537497_960_720"
+    android:background="@drawable/minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
 

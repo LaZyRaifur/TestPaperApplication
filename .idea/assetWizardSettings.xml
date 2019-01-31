@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="360" />
+                                                <entry key="scalingPercent" value="35" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,8 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="75" />
-                                                <entry key="trimmed" value="true" />
+                                                <entry key="scalingPercent" value="59" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -47,6 +46,7 @@
                                     <map>
                                       <entry key="backgroundColor" value="f2fff3" />
                                       <entry key="foregroundImage" value="D:\Common Shared Folder\Quiz Book\logoforapp.png" />
+                                      <entry key="generateRoundIcon" value="false" />
                                     </map>
                                   </option>
                                 </PersistentState>

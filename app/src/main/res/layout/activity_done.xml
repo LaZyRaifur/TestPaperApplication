@@ -20,7 +20,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/edit_round"
+        android:background="@drawable/done_drawable"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="25dp">
